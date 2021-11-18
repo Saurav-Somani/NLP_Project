@@ -4,10 +4,8 @@ import nltk
 import operator
 nltk.download('punkt')
 
-from nltk.stem import PorterStemmer
-from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.tokenize import word_tokenize
 import re
-import string
 
 from nltk.probability import FreqDist as FD
 
@@ -25,7 +23,7 @@ def text_preprocessor(text):
   # to remove punctuations
   text = re.sub('[^a-zA-Z]', '',text)
   # to remove running word
-  text= re.sub("chapter [XVI]+","",text)
+  text= re.sub("chapter [XVI]+\n","",text)
   return text
 
 
@@ -154,6 +152,49 @@ mplp.legend()
 mplp.rcParams["figure.figsize"] = (10,5)
 mplp.xticks(range(0,20))
 mplp.show()
+
+
+nltk.download('averaged_perceptron_tagger')
+
+tagged1 = nltk.pos_tag(token1) 
+print(tagged1) 
+
+tagged2 = nltk.pos_tag(token2) 
+print(tagged2) 
+
+dict1 = {}
+for a,b in tagged1:
+	if(b not in dict1):
+		dict1[b]=1
+	else:
+		dict1[b]+=1
+
+dict2 = {}
+for a,b in tagged2:
+	if(b not in dict2):
+		dict2[b]=1
+	else:
+		dict2[b]+=1
+
+sorted_d1 = dict(sorted(dict1.items(), key=operator.itemgetter(1),reverse=True))
+sorted_d2 = dict(sorted(dict2.items(), key=operator.itemgetter(1),reverse=True))
+
+N = 20 
+out1 = dict(list(sorted_d1.items())[0: N]) 
+out2 = dict(list(sorted_d2.items())[0: N])
+
+mplp.bar(out1.keys(), out1.values())
+mplp.xlabel('TAGS')
+mplp.ylabel('Count')
+mplp.show()
+
+mplp.bar(out2.keys(), out2.values())
+mplp.xlabel('TAGS')
+mplp.ylabel('Count')
+mplp.show()
+
+
+
 
 
 
