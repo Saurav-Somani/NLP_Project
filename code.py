@@ -12,11 +12,16 @@ import operator
 nltk.download('punkt')
 
 
+#Importing Files
+
 f1 = open("Animal Life in the field and Garden.txt", "r", encoding="utf-8")
 f2 = open("The Life Of the Caterpillar.txt", "r", encoding="utf-8")
 
 
+# Main Content extractor
+
 # For taking the main lines of the book 1 : 'Animal Life in the Field and Garden'
+
 with open("Animal Life in the field and Garden.txt", encoding="utf-8") as book:
     lines_1 = book.readlines()
 
@@ -37,6 +42,9 @@ print("The main content is for text T2 is from line numbers {} to {}".format(
     begin_index, end_index))
 
 lines_2 = lines_2[begin_index:end_index]
+
+
+#Text Pre Processing
 
 
 def empty_line_remover(lines):  # function for removing the running words & empty lines
@@ -84,6 +92,8 @@ print(T1)  # printing the cleaned text of book T1
 T2 = text_preprocessor(T2)
 print(T2)  # printing the cleaned text of book T2
 
+# Tokenization
+
 token1 = word_tokenize(T1)  # Tokenizing the book T1
 print(token1)
 
@@ -95,6 +105,7 @@ print(fd1)
 fd2 = FD(token2)  # frequency distribution of token2
 print(fd2)
 
+# Frequency distribution
 
 K = 25
 list_fd1 = dict(sorted(fd1.items(), key=operator.itemgetter(1), reverse=True))
@@ -120,6 +131,8 @@ mplp.ylabel('Frequency')  # bar graph of word-frequency of fd2
 mplp.show()
 
 
+# Word Cloud Formation
+
 # wordcloud of T1
 word_cloud_instance = WordCloud(width=800, height=800, background_color='black',
                                 min_font_size=8).generate(T1)
@@ -140,6 +153,8 @@ mplp.axis("off")
 mplp.tight_layout(pad=0)
 mplp.show()
 
+
+#StopWords Removal and Cloud Forming
 
 nltk.download('stopwords')
 
@@ -212,6 +227,8 @@ mplp.rcParams["figure.figsize"] = (10, 5)
 mplp.xticks(range(0, 20))
 mplp.show()
 
+
+# PoS Tagging
 
 nltk.download('averaged_perceptron_tagger')
 
