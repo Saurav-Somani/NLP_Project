@@ -1,7 +1,7 @@
 # NLP_Project-round1
 The aim of this round of NLP project is to do PoS Tagging for two books downloaded from Project gutenberg.We have used python as our coding language and google colab as our editor.\
-Book 1 : A Tale of Two Cities, by Charles Dicken\
-Book 2 : Pride and Prejudice, by Jane Austen
+Book 1 : Animal Life in the field and Garden,by Jean-Henri Fabre\
+Book 2 : The Life Of the Caterpillar,by Jean-Henri Fabre
 
 # For Usage
 Download the books in .txt format and save it in the same name as given.
