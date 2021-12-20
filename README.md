@@ -4,7 +4,7 @@ Book 1 : Animal Life in the field and Garden,by Jean-Henri Fabre\
 Book 2 : The Life Of the Caterpillar,by Jean-Henri Fabre
 
 # NLP_Project-round2
-The purpose of this round is to use the wordnet and to find the similarity between the books using Tfidfvectorizing embedding scheme.
+The purpose of this round is to use the wordnet and to find the similarity between the books using Tfidfvectorizing embedding scheme.\
 Book 3 : GreenSea Island, by Victor Bridges
 
 # For Usage
